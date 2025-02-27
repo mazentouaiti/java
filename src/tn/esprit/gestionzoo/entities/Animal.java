@@ -1,41 +1,36 @@
 package tn.esprit.gestionzoo.entities;
 
 public class Animal {
-    private String family;
-    private String name;
-    private int age;
-    private boolean isMammal;
+    protected String name;
+    protected int age;
+    protected String family;
 
+    public Animal() {
+        this.name = "Unknown";
+        this.age = 0;
+        this.family = "Unknown";
+    }
 
-    public Animal(String family, String name, int age, boolean isMammal) {
-        this.family = family;
+    public Animal(String name, int age, String family) {
         this.name = name;
-        setAge(age);  // Vérification de l'âge
-        this.isMammal = isMammal;
+        this.age = Math.max(age, 0); // Âge ne peut pas être négatif
+        this.family = family;
     }
 
-
-    public String getFamily() { return family; }
-    public void setFamily(String family) { this.family = family; }
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    public int getAge() { return age; }
-    public void setAge(int age) {
-        if (age < 0) {
-            System.out.println("L'âge ne peut pas être négatif. Age mis à 0 par défaut.");
-            this.age = 0;
-        } else {
-            this.age = age;
-        }
+    public String getName() {
+        return name;
     }
 
-    public boolean isMammal() { return isMammal; }
-    public void setMammal(boolean isMammal) { this.isMammal = isMammal; }
+    public int getAge() {
+        return age;
+    }
+
+    public String getFamily() {
+        return family;
+    }
 
     @Override
     public String toString() {
-        return "Animal { family='" + family + "', name='" + name + "', age=" + age + ", isMammal=" + isMammal + " }";
+        return "Animal{name='" + name + "', age=" + age + ", family='" + family + "'}";
     }
 }
