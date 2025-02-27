@@ -1,38 +1,27 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.Animal;
-import tn.esprit.gestionzoo.entities.Zoo;
-
-import java.util.Scanner;
+import tn.esprit.gestionzoo.entities.*;
 
 public class ZooManagement {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Zoo zoo = new Zoo("Esprit Zoo");
 
-        System.out.print("Entrez le nom du zoo : ");
-        String zooName = scanner.nextLine();
-        System.out.print("Entrez la ville du zoo : ");
-        String zooCity = scanner.nextLine();
+        Dolphin dolphin1 = new Dolphin("Flipper", 5, "Mammal", "Ocean", 25.0f);
+        Dolphin dolphin2 = new Dolphin("Echo", 4, "Mammal", "Ocean", 22.0f);
+        Penguin penguin1 = new Penguin("Pingu", 3, "Bird", "Antarctica", 10.0f);
+        Penguin penguin2 = new Penguin("Skipper", 6, "Bird", "Antarctica", 15.0f);
 
-        Zoo myZoo = new Zoo(zooName, zooCity);
+        zoo.addAquaticAnimal(dolphin1);
+        zoo.addAquaticAnimal(dolphin2);
+        zoo.addAquaticAnimal(penguin1);
+        zoo.addAquaticAnimal(penguin2);
 
+        System.out.println("\nAquatic Animals Swimming:");
+        zoo.showAquaticAnimalsSwimming();
 
-        Animal lion = new Animal("Felidae", "Lion", 5, true);
-        Animal tiger = new Animal("Felidae", "Tiger", 4, true);
-        Animal elephant = new Animal("Elephantidae", "Elephant", 10, true);
+        System.out.println("\nAquatic Animals Count:");
+        zoo.displayNumberOfAquaticsByType();
 
-
-        myZoo.addAnimal(lion);
-        myZoo.addAnimal(tiger);
-        myZoo.addAnimal(elephant);
-        myZoo.addAnimal(new Animal("Felidae", "Lion", 3, true));  // Duplication testée
-
-
-        myZoo.displayAnimals();
-
-
-        System.out.println("Le zoo est-il plein ? " + myZoo.isZooFull());
-
-        scanner.close();
+        System.out.println("\nMax Penguin Swimming Depth: " + zoo.maxPenguinSwimmingDepth() + " meters.");
     }
 }
