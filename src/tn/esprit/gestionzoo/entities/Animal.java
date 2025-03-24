@@ -1,36 +1,37 @@
 package tn.esprit.gestionzoo.entities;
 
 public class Animal {
-    protected String name;
-    protected int age;
-    protected String family;
+    private String name;
+    private int age;
+    private String habitat;
 
-    public Animal() {
-        this.name = "Unknown";
-        this.age = 0;
-        this.family = "Unknown";
-    }
-
-    public Animal(String name, int age, String family) {
+    public Animal(String name, int age, String habitat) {
         this.name = name;
-        this.age = Math.max(age, 0); // Âge ne peut pas être négatif
-        this.family = family;
+        this.age = age;
+        this.habitat = habitat;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getAge() {
-        return age;
+        return this.age;
     }
 
-    public String getFamily() {
-        return family;
+    public String getHabitat() {
+        return this.habitat;
+    }
+
+    public void setAge(int age) {
+        if (age < 0) {
+            throw new IllegalArgumentException("Age cannot be negative");
+        }
+        this.age = age;
     }
 
     @Override
     public String toString() {
-        return "Animal{name='" + name + "', age=" + age + ", family='" + family + "'}";
+        return "Animal [name=" + name + ", age=" + age + ", habitat=" + habitat + "]";
     }
 }

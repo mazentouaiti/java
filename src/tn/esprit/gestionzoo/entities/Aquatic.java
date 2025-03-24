@@ -1,38 +1,21 @@
 package tn.esprit.gestionzoo.entities;
 
-public abstract class Aquatic extends Animal {
-    protected String habitat;
+public abstract class Aquatic extends Animal implements Carnivore<Food> {
 
-    public Aquatic() {
-        super();
-        this.habitat = "Unknown";
+    public Aquatic(String name, int age, String habitat) {
+        super(name, age, habitat);
     }
-
-
-    public Aquatic(String name, int age, String family, String habitat) {
-        super(name, age, family);
-        this.habitat = habitat;
-    }
-
-
-    public String getHabitat() {
-        return habitat;
-    }
-
 
     @Override
-    public String toString() {
-        return super.toString() + ", habitat='" + habitat + "'";
+    public void eatMeat(Food meat) {
+        if (meat == Food.MEAT) {
+            System.out.println(getName() + " is eating meat.");
+        } else {
+            System.out.println(getName() + " cannot eat this food.");
+        }
     }
-
 
     public abstract void swim();
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Aquatic)) return false;
-        Aquatic other = (Aquatic) obj;
-        return this.name.equals(other.name) && this.age == other.age && this.habitat.equals(other.habitat);
-    }
+    public abstract void makeSound();
 }
