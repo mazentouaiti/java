@@ -1,78 +1,86 @@
 package tn.esprit.gestionzoo.entities;
 
-import java.util.ArrayList;
+import tn.esprit.gestionzoo.main.ZooFullException;
+import tn.esprit.gestionzoo.main.InvalidAgeException;
 
 public class Zoo {
     private String name;
-    private ArrayList<Animal> animals;
+    private String city;
+    private final int nbrCages;
+    private Animal[] animals;
     private Aquatic[] aquaticAnimals;
-    private int aquaticCount;
-    private static final int MAX_ANIMALS = 25;
-    private static final int MAX_AQUATIC = 10;
+    private Terrestrial[] terrestrialAnimals;  // Store terrestrial animals
+    private int animalCount = 0;
 
-    public Zoo(String name) {
-        if (name.isEmpty()) {
-            throw new IllegalArgumentException("Zoo name cannot be empty.");
-        }
+    public Zoo(String name, String city, int nbrCages) {
         this.name = name;
-        this.animals = new ArrayList<>();
-        this.aquaticAnimals = new Aquatic[MAX_AQUATIC];
-        this.aquaticCount = 0;
-    }
-    public boolean isZooFull() {
-        return animals.size() >= MAX_ANIMALS;
-    }
-
-    public boolean addAnimal(Animal animal) {
-        if (isZooFull()) {
-            System.out.println("Zoo is full! Cannot add more animals.");
-            return false;
-        }
-        if (animals.contains(animal)) {
-            System.out.println("Animal already exists in the zoo.");
-            return false;
-        }
-        animals.add(animal);
-        return true;
+        this.city = city;
+        this.nbrCages = nbrCages;
+        this.animals = new Animal[nbrCages];
+        this.aquaticAnimals = new Aquatic[10];
+        this.terrestrialAnimals = new Terrestrial[10];  // Adjusted for 10 terrestrial animals
     }
 
-    public void addAquaticAnimal(Aquatic aquatic) {
-        if (aquaticCount < MAX_AQUATIC) {
-            aquaticAnimals[aquaticCount++] = aquatic;
+    public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException {
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException("Age cannot be negative!");
+        }
+        if (animalCount < nbrCages) {
+            animals[animalCount++] = animal;
         } else {
-            System.out.println("The aquatic section is full!");
+            throw new ZooFullException("Zoo is full! Cannot add more animals.");
         }
     }
-
-    public void showAquaticAnimalsSwimming() {
-        for (int i = 0; i < aquaticCount; i++) {
-            aquaticAnimals[i].swim();
+    // Method to get the number of animals in the zoo
+    public int getAnimalCount() {
+        int count = 0;
+        for (Animal animal : animals) {
+            if (animal != null) {
+                count++;
+            }
         }
+        return count;
     }
+    // Method to display the number of aquatic animals by type (Dolphins and Penguins)
+    public void displayNumberOfAquaticsByType() {
+        int dolphinCount = 0;
+        int penguinCount = 0;
 
-    public float maxPenguinSwimmingDepth() {
-        float maxDepth = 0;
-        for (int i = 0; i < aquaticCount; i++) {
-            if (aquaticAnimals[i] instanceof Penguin) {
-                float depth = ((Penguin) aquaticAnimals[i]).getSwimmingDepth();
-                if (depth > maxDepth) {
-                    maxDepth = depth;
+        for (Aquatic aquatic : aquaticAnimals) {
+            if (aquatic != null) {
+                if (aquatic instanceof Dolphin) {
+                    dolphinCount++;
+                } else if (aquatic instanceof Penguin) {
+                    penguinCount++;
                 }
             }
         }
-        return maxDepth;
-    }
 
-    public void displayNumberOfAquaticsByType() {
-        int dolphinCount = 0, penguinCount = 0;
-        for (int i = 0; i < aquaticCount; i++) {
-            if (aquaticAnimals[i] instanceof Dolphin) {
-                dolphinCount++;
-            } else if (aquaticAnimals[i] instanceof Penguin) {
-                penguinCount++;
-            }
-        }
         System.out.println("Number of Dolphins: " + dolphinCount);
         System.out.println("Number of Penguins: " + penguinCount);
     }
+    public void addTerrestrialAnimal(Terrestrial terrestrial) {
+        for (int i = 0; i < terrestrialAnimals.length; i++) {
+            if (terrestrialAnimals[i] == null) {
+                terrestrialAnimals[i] = terrestrial;
+                break;
+            }
+        }
+    }
+
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public Aquatic[] getAquaticAnimals() {
+        return aquaticAnimals;
+    }
+
+    public Terrestrial[] getTerrestrialAnimals() {
+        return terrestrialAnimals;
+    }
+
+    public void addAquaticAnimal(Aquatic dolphin) {
+    }
+
 }
