@@ -1,9 +1,10 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.AffectationHashMap;
-import tn.esprit.gestionzoo.entities.Departement;
-import tn.esprit.gestionzoo.entities.Employe;
+import tn.esprit.gestionzoo.entities.*;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.TreeMap;
 
 public class Main {
@@ -74,5 +75,61 @@ public class Main {
         emptyMap.afficherEmployes();
         emptyMap.afficherDepartements();
         System.out.println("Recherche dans une map vide: " + emptyMap.rechercherEmploye(emp1));
+
+        System.out.println("\n\n===== Gestion des Étudiants =====");
+
+        StudentManagement studentManagement = new StudentManagement();
+
+        List<Etudiant> students = new ArrayList<>();
+        students.add(new Etudiant(1, "Mohamed Ali", 22));
+        students.add(new Etudiant(2, "Amina Belhadj", 20));
+        students.add(new Etudiant(3, "Khalid Bouzid", 21));
+        students.add(new Etudiant(4, "Leila Cherif", 23));
+
+        System.out.println("\n1. Liste des étudiants:");
+        studentManagement.displayStudents(students, s -> System.out.println("- " + s));
+
+        System.out.println("\n2. Étudiants de plus de 21 ans:");
+        studentManagement.displayStudentsByFilter(
+                students,
+                s -> s.getAge() > 21,
+                s -> System.out.println("- " + s.getNom() + " (" + s.getAge() + " ans)")
+        );
+
+        System.out.println("\n3. Noms des étudiants:");
+        String names = studentManagement.returnStudentsNames(
+                students,
+                s -> s.getNom() + " (" + s.getId() + ")"
+        );
+        System.out.println(names);
+
+        System.out.println("\n4. Création d'un nouvel étudiant:");
+        Etudiant newStudent = studentManagement.createStudent(() -> new Etudiant(5, "Youssef Hammadi", 19));
+        System.out.println("Nouvel étudiant créé: " + newStudent);
+
+        System.out.println("\n5. Étudiants triés par ID:");
+        List<Etudiant> sortedStudents = studentManagement.sortStudentsById(
+                students,
+                Comparator.comparingInt(Etudiant::getId)
+        );
+        sortedStudents.forEach(System.out::println);
+
+        System.out.println("\n6. Conversion en Stream et calcul de la moyenne d'âge:");
+        double averageAge = studentManagement.convertToStream(students)
+                .mapToInt(Etudiant::getAge)
+                .average()
+                .orElse(0);
+        System.out.println("Moyenne d'âge: " + averageAge);
+
+
+        System.out.println("\n===== Opérations Combinées =====");
+
+        Departement studentDept = new Departement(200, "Formation", 100);
+
+        Employe studentAdmin = new Employe(10, "Ben Ahmed", "Samira", "Education", 5);
+        affectations.ajouterEmployeDepartement(studentAdmin, studentDept);
+
+        System.out.println("\nAffichage final des affectations:");
+        affectations.afficherEmployesEtDepartements();
     }
 }
