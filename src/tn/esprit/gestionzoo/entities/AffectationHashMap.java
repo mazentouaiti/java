@@ -14,8 +14,14 @@ public class AffectationHashMap {
 
     // Instruction 2: Add employee to department
     public void ajouterEmployeDepartement(Employe e, Departement d) {
+        if (e == null || d == null) {
+            System.out.println("Erreur: L'employé ou le département ne peut pas être null");
+            return;
+        }
+
         if (!affectations.containsKey(e)) {
             affectations.put(e, d);
+            System.out.println("Employé " + e.getNom() + " ajouté au département " + d.getNomDepartement());
         } else {
             System.out.println("L'employé " + e.getNom() + " est déjà affecté à un département.");
         }
@@ -60,8 +66,8 @@ public class AffectationHashMap {
     // Instruction 7: Display all departments
     public void afficherDepartements() {
         System.out.println("Liste des départements:");
-        Set<Departement> departements = (Set<Departement>) affectations.values();
-        for (Departement d : departements) {
+
+        for (Departement d : affectations.values()) {
             System.out.println(d);
         }
     }
