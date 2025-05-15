@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e213f744-ed3f-4b04-b2ad-969ac1def195" name="Changes" comment="" />
+=======
+  <component name="ChangeListManager">
+    <list default="true" id="335054f1-5cf6-47ae-8437-3635469db5cf" name="Changes" comment="" />
+>>>>>>> 6574c28544707e132486b1e97454a8593cd42f5e
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +18,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+<<<<<<< HEAD
         <entry key="$PROJECT_DIR$" value="Prosit-1" />
+=======
+        <entry key="$PROJECT_DIR$" value="Prosit-8" />
+>>>>>>> 6574c28544707e132486b1e97454a8593cd42f5e
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,16 +40,24 @@
   }
 }</component>
   <component name="ProjectColorInfo">{
+<<<<<<< HEAD
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2x7yJ8DedCBCKFFDFJhzNK2e4bd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+=======
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2x83eTheTdYCV5KCVqUa1mCTUd3" />
+>>>>>>> 6574c28544707e132486b1e97454a8593cd42f5e
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+<<<<<<< HEAD
     "Application.ZooManagement.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -50,19 +67,34 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+=======
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Prosit-7",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/touai/Desktop/java",
+>>>>>>> 6574c28544707e132486b1e97454a8593cd42f5e
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
+<<<<<<< HEAD
       <module name="src" />
+=======
+      <module name="java" />
+>>>>>>> 6574c28544707e132486b1e97454a8593cd42f5e
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+<<<<<<< HEAD
       <module name="src" />
+=======
+      <module name="java" />
+>>>>>>> 6574c28544707e132486b1e97454a8593cd42f5e
       <option name="filePath" />
       <method v="2" />
     </configuration>
@@ -78,6 +110,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="e213f744-ed3f-4b04-b2ad-969ac1def195" name="Changes" comment="" />
       <created>1747303331801</created>
       <option name="number" value="Default" />
@@ -87,6 +120,16 @@
       <workItem from="1747303807112" duration="71000" />
       <workItem from="1747305635760" duration="24000" />
       <workItem from="1747306709829" duration="74000" />
+=======
+      <changelist id="335054f1-5cf6-47ae-8437-3635469db5cf" name="Changes" comment="" />
+      <created>1747305969706</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747305969706</updated>
+      <workItem from="1747305971228" duration="7000" />
+      <workItem from="1747305999266" duration="122000" />
+      <workItem from="1747306128483" duration="55000" />
+>>>>>>> 6574c28544707e132486b1e97454a8593cd42f5e
     </task>
     <servers />
   </component>
