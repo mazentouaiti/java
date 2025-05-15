@@ -1,0 +1,13 @@
+Index: .idea/.name
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Animal.java
+===================================================================
+diff --git a/.idea/.name b/.idea/.name
+--- a/.idea/.name	(revision 3f2a415d16956b5ed245699ba7d31daa750549db)
++++ b/.idea/.name	(date 1747305977933)
+@@ -1,1 +1,1 @@
+-Animal.java
+\ No newline at end of file
++AffectationHashMap.java
+\ No newline at end of file
